@@ -9,7 +9,8 @@ import (
 )
 
 func main() {
-	for _, url := range os.Args[1:] {
+	urls := os.Args[1:]
+	for _, url := range urls {
 		resp, err := http.Get(url)
 		if err != nil {
 			log.Fatal(err)
@@ -21,4 +22,5 @@ func main() {
 		}
 		fmt.Printf("%s", b)
 	}
+	Run(urls)
 }
